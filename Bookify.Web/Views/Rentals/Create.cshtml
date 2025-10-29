@@ -1,0 +1,159 @@
+﻿@using Bookify.Contracts.ViewModels.Rental
+@model Bookify.Contracts.ViewModels.Rental.CreateRentalViewModel
+
+@{
+    ViewData["Title"] = "Create Rental";
+}
+
+<div class="card shadow-sm">
+    <div class="card-header">
+        <h3 class="card-title">Create New Rental</h3>
+    </div>
+    <div class="card-body">
+        <form asp-action="Create" method="post">
+            <input type="hidden" asp-for="SubscriberId" />
+
+            @if (!ViewData.ModelState.IsValid)
+            {
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                        {
+                            <li>@error.ErrorMessage</li>
+                        }
+                    </ul>
+                </div>
+            }
+
+            <!-- تعديل التحذير ليظهر فقط إذا كان عدد الكتب غير المُرجعة 3 أو أكثر -->
+            @if (ViewData["UnreturnedBooksCount"] != null && (int)ViewData["UnreturnedBooksCount"]! >= 3)
+            {
+                <div class="alert alert-danger">
+                    <strong>Warning:</strong> This subscriber has already rented 3 books and cannot rent more.
+                </div>
+            }
+
+            <div class="mb-3">
+                <label class="form-label">Enter up to 3 Serial Numbers</label>
+                
+                <!-- Serial Numbers Inputs -->
+                @for (int i = 0; i < Model.SerialNumbers.Count; i++)
+                {
+                    <div class="input-group mb-2">
+                        <input type="number" class="form-control serial-number" asp-for="SerialNumbers[i]" placeholder="Serial Number @(i + 1)">
+                    </div>
+                }
+
+                <button type="button" class="btn btn-primary" id="searchButton">
+                    <i class="bi bi-search"></i> Search
+                </button>
+            </div>
+
+            @if (ViewData["RentedBooks"] is List<RentedBookViewModel> rentedBooks)
+            {
+                <div class="alert alert-warning">
+                    <strong>Warning:</strong> The following books are already rented:
+                    <ul>
+                        @foreach (var book in rentedBooks)
+                        {
+                            <li>Serial Number: @book.SerialNumber (Rented by Subscriber ID: @book.RentedBy)</li>
+                        }
+                    </ul>
+                </div>
+            }
+
+            <!-- Table to display book details -->
+            <div id="bookDetailsContainer" class="mt-3">
+                <table class="table table-bordered table-hover d-none" id="bookTable">
+                    <thead>
+                        <tr>
+                            <th>Serial Number</th>
+                            <th>Title</th>
+                            <th>Edition Number</th>
+                            <th>Actions</th> <!-- New Column for Remove Button -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Rows will be populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="mt-4">
+                <button type="submit" class="btn btn-primary">
+                    <i class="bi bi-check-circle"></i> Create Rental
+                </button>
+                <a asp-action="RentedBookCopies" asp-controller="Rentals" asp-route-subscriberId="@Model.SubscriberId" class="btn btn-info">
+                    <i class="bi bi-list"></i> Rentaled Book Copies
+                </a>
+                <a asp-action="Details" asp-controller="Subscriber" asp-route-id="@Model.SubscriberId" class="btn btn-secondary">
+                    <i class="bi bi-x-circle"></i> Cancel
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#searchButton').click(function () {
+                let serialNumbers = [];
+
+                $('.serial-number').each(function () {
+                    let value = $(this).val().trim();
+                    if (value) serialNumbers.push(parseInt(value));
+                });
+
+                if (serialNumbers.length === 0) {
+                    alert('Please enter at least one serial number.');
+                    return;
+                }
+
+                $.ajax({
+                    url: '@Url.Action("SearchBookCopies", "Rentals")',
+                    type: 'GET',
+                    data: { serialNumbers: serialNumbers },
+                    traditional: true, // Required to properly send array
+                    success: function (response) {
+                        let bookTable = $('#bookTable');
+                        let tbody = bookTable.find('tbody');
+                        tbody.empty(); // Clear previous results
+
+                        if (response.length === 0) {
+                            alert('No books found.');
+                            bookTable.addClass('d-none'); // Hide table if no results
+                            return;
+                        }
+
+                        // Populate table with book details
+                        response.forEach(book => {
+                            tbody.append(`
+                                <tr>
+                                    <td>${book.serialNumber}</td>
+                                    <td>${book.bookTitle}</td>
+                                    <td>${book.editionNumber}</td>
+                                    <td>
+                                        <button type="button" class="btn btn-danger btn-sm remove-button">
+                                            <i class="bi bi-trash"></i> Remove
+                                        </button>
+                                    </td>
+                                </tr>
+                            `);
+                        });
+
+                        bookTable.removeClass('d-none'); // Show table
+                    },
+                    error: function () {
+                        alert('An error occurred while searching.');
+                    }
+                });
+            });
+
+            // Event delegation for Remove button
+            $(document).on('click', '.remove-button', function () {
+                $(this).closest('tr').remove(); // Remove the row containing the clicked button
+            });
+        });
+    </script>
+}

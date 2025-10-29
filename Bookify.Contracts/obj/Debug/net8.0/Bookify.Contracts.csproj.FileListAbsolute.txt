@@ -1,0 +1,32 @@
+D:\مينفعش يتمسح\Users-fc\OneDrive\Desktop\Bookify\Bookify.Contracts\bin\Debug\net8.0\Bookify.Contracts.deps.json
+D:\مينفعش يتمسح\Users-fc\OneDrive\Desktop\Bookify\Bookify.Contracts\bin\Debug\net8.0\Bookify.Contracts.dll
+D:\مينفعش يتمسح\Users-fc\OneDrive\Desktop\Bookify\Bookify.Contracts\bin\Debug\net8.0\Bookify.Contracts.pdb
+D:\مينفعش يتمسح\Users-fc\OneDrive\Desktop\Bookify\Bookify.Contracts\bin\Debug\net8.0\Bookify.Domain.dll
+D:\مينفعش يتمسح\Users-fc\OneDrive\Desktop\Bookify\Bookify.Contracts\bin\Debug\net8.0\Bookify.Domain.pdb
+D:\مينفعش يتمسح\Users-fc\OneDrive\Desktop\Bookify\Bookify.Contracts\obj\Debug\net8.0\Bookify.Contracts.csproj.AssemblyReference.cache
+D:\مينفعش يتمسح\Users-fc\OneDrive\Desktop\Bookify\Bookify.Contracts\obj\Debug\net8.0\Bookify.Contracts.GeneratedMSBuildEditorConfig.editorconfig
+D:\مينفعش يتمسح\Users-fc\OneDrive\Desktop\Bookify\Bookify.Contracts\obj\Debug\net8.0\Bookify.Contracts.AssemblyInfoInputs.cache
+D:\مينفعش يتمسح\Users-fc\OneDrive\Desktop\Bookify\Bookify.Contracts\obj\Debug\net8.0\Bookify.Contracts.AssemblyInfo.cs
+D:\مينفعش يتمسح\Users-fc\OneDrive\Desktop\Bookify\Bookify.Contracts\obj\Debug\net8.0\Bookify.Contracts.csproj.CoreCompileInputs.cache
+D:\مينفعش يتمسح\Users-fc\OneDrive\Desktop\Bookify\Bookify.Contracts\obj\Debug\net8.0\Bookify.Contracts.sourcelink.json
+D:\مينفعش يتمسح\Users-fc\OneDrive\Desktop\Bookify\Bookify.Contracts\obj\Debug\net8.0\Bookify..D660E3A3.Up2Date
+D:\مينفعش يتمسح\Users-fc\OneDrive\Desktop\Bookify\Bookify.Contracts\obj\Debug\net8.0\Bookify.Contracts.dll
+D:\مينفعش يتمسح\Users-fc\OneDrive\Desktop\Bookify\Bookify.Contracts\obj\Debug\net8.0\refint\Bookify.Contracts.dll
+D:\مينفعش يتمسح\Users-fc\OneDrive\Desktop\Bookify\Bookify.Contracts\obj\Debug\net8.0\Bookify.Contracts.pdb
+D:\مينفعش يتمسح\Users-fc\OneDrive\Desktop\Bookify\Bookify.Contracts\obj\Debug\net8.0\ref\Bookify.Contracts.dll
+D:\Bookify\Bookify.Contracts\bin\Debug\net8.0\Bookify.Contracts.deps.json
+D:\Bookify\Bookify.Contracts\bin\Debug\net8.0\Bookify.Contracts.dll
+D:\Bookify\Bookify.Contracts\bin\Debug\net8.0\Bookify.Contracts.pdb
+D:\Bookify\Bookify.Contracts\bin\Debug\net8.0\Bookify.Domain.dll
+D:\Bookify\Bookify.Contracts\bin\Debug\net8.0\Bookify.Domain.pdb
+D:\Bookify\Bookify.Contracts\obj\Debug\net8.0\Bookify.Contracts.csproj.AssemblyReference.cache
+D:\Bookify\Bookify.Contracts\obj\Debug\net8.0\Bookify.Contracts.GeneratedMSBuildEditorConfig.editorconfig
+D:\Bookify\Bookify.Contracts\obj\Debug\net8.0\Bookify.Contracts.AssemblyInfoInputs.cache
+D:\Bookify\Bookify.Contracts\obj\Debug\net8.0\Bookify.Contracts.AssemblyInfo.cs
+D:\Bookify\Bookify.Contracts\obj\Debug\net8.0\Bookify.Contracts.csproj.CoreCompileInputs.cache
+D:\Bookify\Bookify.Contracts\obj\Debug\net8.0\Bookify.Contracts.sourcelink.json
+D:\Bookify\Bookify.Contracts\obj\Debug\net8.0\Bookify..D660E3A3.Up2Date
+D:\Bookify\Bookify.Contracts\obj\Debug\net8.0\Bookify.Contracts.dll
+D:\Bookify\Bookify.Contracts\obj\Debug\net8.0\refint\Bookify.Contracts.dll
+D:\Bookify\Bookify.Contracts\obj\Debug\net8.0\Bookify.Contracts.pdb
+D:\Bookify\Bookify.Contracts\obj\Debug\net8.0\ref\Bookify.Contracts.dll

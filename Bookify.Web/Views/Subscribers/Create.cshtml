@@ -1,0 +1,152 @@
+﻿@model Bookify.Contracts.ViewModels.Subscriber.SubscriberViewModel
+
+@{
+    ViewData["Title"] = "Create Subscriber";
+}
+
+<div class="card shadow-sm">
+    <div class="card-header">
+        <h3 class="card-title">Create Subscriber</h3>
+    </div>
+    <div class="card-body">
+        <form asp-action="Create" method="post" enctype="multipart/form-data">
+            <div class="row">
+                <!-- First Name -->
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="FirstName" class="form-label"></label>
+                        <input asp-for="FirstName" class="form-control" />
+                        <span asp-validation-for="FirstName" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <!-- Last Name -->
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="LastName" class="form-label"></label>
+                        <input asp-for="LastName" class="form-control" />
+                        <span asp-validation-for="LastName" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- Date of Birth -->
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="DateOfBirth" class="form-label"></label>
+                        <input asp-for="DateOfBirth" type="date" class="form-control" />
+                        <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <!-- National ID -->
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="NationalId" class="form-label"></label>
+                        <input asp-for="NationalId" class="form-control" />
+                        <span asp-validation-for="NationalId" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- Mobile Number -->
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="MobileNumber" class="form-label"></label>
+                        <input asp-for="MobileNumber" class="form-control" />
+                        <span asp-validation-for="MobileNumber" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <!-- Has WhatsApp -->
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="HasWhatsApp" class="form-label"></label>
+                        <input asp-for="HasWhatsApp" type="checkbox" class="form-check-input" />
+                        <span asp-validation-for="HasWhatsApp" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- Email -->
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Email" class="form-label"></label>
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <!-- Image Upload -->
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="ImageFile" class="form-label"></label>
+                        <input asp-for="ImageFile" type="file" class="form-control" />
+                        <span asp-validation-for="ImageFile" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- Governorate -->
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="GovernorateId" class="form-label"></label>
+                        <select asp-for="GovernorateId" asp-items="Model.Governorates" class="form-control">
+                            <option value="">-- Select Governorate --</option>
+                        </select>
+                        <span asp-validation-for="GovernorateId" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <!-- Area -->
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="AreaId" class="form-label"></label>
+                        <select asp-for="AreaId" asp-items="Model.Areas" class="form-control">
+                            <option value="">-- Select Area --</option>
+                        </select>
+                        <span asp-validation-for="AreaId" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- Address -->
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label asp-for="Address" class="form-label"></label>
+                        <input asp-for="Address" class="form-control" />
+                        <span asp-validation-for="Address" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- Is Blacklisted -->
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="IsBlackListed" class="form-label"></label>
+                        <input asp-for="IsBlackListed" type="checkbox" class="form-check-input" />
+                        <span asp-validation-for="IsBlackListed" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="form-group mt-4">
+                <button type="submit" class="btn btn-primary">Create</button>
+                <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

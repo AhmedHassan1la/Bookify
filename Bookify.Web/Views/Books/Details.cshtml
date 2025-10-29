@@ -1,0 +1,134 @@
+﻿@model Bookify.Web.Core.ViewModels.Book.BookViewModel
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h4 class="card-title mb-0">@Model.Title</h4>
+                <a href="@Url.Action("Edit", "Books", new { id = Model.Id })" class="btn btn-primary">Edit</a>
+            </div>
+
+            <span class="badge @(Model.IsAvailableForRental ? "bg-success" : "bg-danger")">
+                @(Model.IsAvailableForRental ? "Available For Rental" : "Not Available For Rental")
+            </span>
+
+            <p class="text-muted mt-2">
+                by author <strong>@Model.Authors.FirstOrDefault(a => a.Selected)?.Text</strong><br />
+                publisher <strong>@Model.Publisher</strong>
+            </p>
+
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <img src="@Url.Content(Model.ImageUrl ?? "~/images/default-book.png")"
+                         class="img-fluid rounded"
+                         alt="@Model.Title"
+                         data-bs-toggle="modal"
+                         data-bs-target="#imageModal"
+                         style="cursor: pointer;" />
+                </div>
+                <div class="col-md-8">
+                    <div class="row mb-2">
+                        <div class="col-6">
+                            <strong>Publishing Date:</strong> @Model.PublishingDate.ToString("dd MMM, yyyy")
+                        </div>
+                        <div class="col-6">
+                            <strong>Created On:</strong> @(DateTime.Now.ToString("dd MMM, yyyy"))
+                        </div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-6">
+                            <strong>Copies:</strong> @Model.BookCopies.Count
+                        </div>
+                    </div>
+
+                    <h6 class="mt-3">Categories:</h6>
+                    <div class="mb-3">
+                        @foreach (var category in Model.Categories.Where(c => Model.SelectedCategoryIds.Contains(int.Parse(c.Value))))
+                        {
+                            <span class="badge bg-primary me-1">@category.Text</span>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <ul class="nav nav-tabs mt-4" id="bookDetailsTab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description" type="button" role="tab" aria-controls="description" aria-selected="true">Description</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="copies-tab" data-bs-toggle="tab" data-bs-target="#copies" type="button" role="tab" aria-controls="copies" aria-selected="false">Copies</button>
+        </li>
+    </ul>
+
+    <div class="tab-content mt-3" id="bookDetailsTabContent">
+        <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
+            <p>@Model.Description</p>
+        </div>
+        <div class="tab-pane fade" id="copies" role="tabpanel" aria-labelledby="copies-tab">
+            <div class="d-flex justify-content-between mb-3">
+                <h5>Book Copies</h5>
+                <a href="@Url.Action("Create", "BookCopies", new { bookId = Model.Id })" class="btn btn-success">
+                    <i class="bi bi-plus-circle"></i> Add New Copy
+                </a>
+            </div>
+
+            @if (Model.BookCopies.Any())
+            {
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Serial Number</th>
+                            <th>Edition Number</th>
+                            <th>Available for Rental</th>
+                            <th>Is Deleted</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var copy in Model.BookCopies)
+                        {
+                            <tr>
+                                <td>@copy.SerialNumber</td>
+                                <td>@copy.EditionNumber</td>
+                                <td>
+                                    <span class="badge @(copy.IsAvailableForRental ? "bg-success" : "bg-danger")">
+                                        @(copy.IsAvailableForRental ? "Yes" : "No")
+                                    </span>
+                                </td>
+                                <td>@(copy.IsDeleted ? "Yes" : "No")</td>
+                                <td>
+                                    <a href="@Url.Action("Edit", "BookCopies", new { id = copy.Id })" class="btn btn-primary btn-sm">
+                                        <i class="bi bi-pencil-square"></i> Edit
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <p>No copies available.</p>
+            }
+        </div>
+    </div>
+</div>
+
+<!-- Modal for displaying the full-size image -->
+<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                <img src="@Url.Content(Model.ImageUrl ?? "~/images/default-book.png")" class="img-fluid rounded" alt="@Model.Title" />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

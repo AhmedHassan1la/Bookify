@@ -1,0 +1,128 @@
+D:\Bookify\Bookify.Web\wwwroot\js\profile.js
+D:\Bookify\Bookify.Web\wwwroot\lib\jquery\dist\jquery.min.js
+D:\Bookify\Bookify.Web\wwwroot\lib\jquery\LICENSE.txt
+D:\Bookify\Bookify.Web\wwwroot\assets\css\plugins.bundle.css
+D:\Bookify\Bookify.Web\wwwroot\lib\jquery-validation-unobtrusive\LICENSE.txt
+D:\Bookify\Bookify.Web\wwwroot\assets\images\reset-password.svg
+D:\Bookify\Bookify.Web\wwwroot\lib\jquery\dist\jquery.slim.min.js
+D:\Bookify\Bookify.Web\wwwroot\lib\bootstrap\js\bootstrap.bundle.min.js
+D:\Bookify\Bookify.Web\wwwroot\assets\css\style.bundle.css
+D:\Bookify\Bookify.Web\wwwroot\lib\bootstrap\js\bootstrap.bundle.min.js.map
+D:\Bookify\Bookify.Web\wwwroot\lib\bootstrap\css\bootstrap.min.css.map
+D:\Bookify\Bookify.Web\wwwroot\js\validation-styling.js
+D:\Bookify\Bookify.Web\wwwroot\assets\images\401.svg
+D:\Bookify\Bookify.Web\wwwroot\lib\jquery\dist\jquery.min.map
+D:\Bookify\Bookify.Web\wwwroot\assets\images\login.svg
+D:\Bookify\Bookify.Web\wwwroot\assets\plugins\datatables\datatables.bundle.js
+D:\Bookify\Bookify.Web\wwwroot\lib\bootstrap\css\bootstrap.css.map
+D:\Bookify\Bookify.Web\wwwroot\lib\bootstrap\css\bootstrap.min.css
+D:\Bookify\Bookify.Web\wwwroot\lib\bootstrap\js\bootstrap.bundle.js
+D:\Bookify\Bookify.Web\wwwroot\lib\jquery-validation\dist\additional-methods.js
+D:\Bookify\Bookify.Web\wwwroot\lib\bootstrap\js\bootstrap.bundle.js.map
+D:\Bookify\Bookify.Web\wwwroot\assets\images\Vault-bro.svg
+D:\Bookify\Bookify.Web\wwwroot\lib\jquery-validation\dist\additional-methods.min.js
+D:\Bookify\Bookify.Web\wwwroot\lib\jquery-validation\dist\jquery.validate.js
+D:\Bookify\Bookify.Web\wwwroot\assets\js\scripts.bundle.js
+D:\Bookify\Bookify.Web\wwwroot\lib\jquery-validation\LICENSE.md
+D:\Bookify\Bookify.Web\wwwroot\lib\bootstrap\css\bootstrap.css
+D:\Bookify\Bookify.Web\wwwroot\lib\jquery-validation-unobtrusive\dist\jquery.validate.unobtrusive.min.js
+D:\Bookify\Bookify.Web\wwwroot\lib\jquery\dist\jquery.slim.min.map
+D:\Bookify\Bookify.Web\wwwroot\lib\bootstrap\js\bootstrap.js.map
+D:\Bookify\Bookify.Web\wwwroot\assets\plugins\datatables\datatables.bundle.css
+D:\Bookify\Bookify.Web\wwwroot\lib\jquery\dist\jquery.js
+D:\Bookify\Bookify.Web\wwwroot\lib\jquery-validation\dist\jquery.validate.min.js
+D:\Bookify\Bookify.Web\wwwroot\assets\js\plugins.bundle.js
+D:\Bookify\Bookify.Web\wwwroot\lib\bootstrap\js\bootstrap.min.js
+D:\Bookify\Bookify.Web\wwwroot\css\site.css
+D:\Bookify\Bookify.Web\wwwroot\assets\images\mail-sent.svg
+D:\Bookify\Bookify.Web\wwwroot\lib\jquery-validation-unobtrusive\dist\jquery.validate.unobtrusive.js
+D:\Bookify\Bookify.Web\wwwroot\assets\images\avatar-blank.svg
+D:\Bookify\Bookify.Web\wwwroot\lib\bootstrap\js\bootstrap.js
+D:\Bookify\Bookify.Web\wwwroot\favicon.ico
+D:\Bookify\Bookify.Web\wwwroot\lib\bootstrap\js\bootstrap.min.js.map
+D:\Bookify\Bookify.Web\wwwroot\js\site.js
+D:\Bookify\Bookify.Web\wwwroot\assets\images\welocme.svg
+D:\Bookify\Bookify.Web\wwwroot\lib\jquery\dist\jquery.slim.js
+wwwroot\assets\css\fonts\bootstrap-icons\bootstrap-icons.woff
+wwwroot\assets\css\fonts\bootstrap-icons\bootstrap-icons.woff2
+wwwroot\assets\css\plugins.bundle.css
+wwwroot\assets\css\style.bundle.css
+wwwroot\assets\images\401.svg
+wwwroot\assets\images\avatar.png
+wwwroot\assets\images\avatar-blank.svg
+wwwroot\assets\images\bg10.jpeg
+wwwroot\assets\images\bg10-dark.jpeg
+wwwroot\assets\images\bg3.jpg
+wwwroot\assets\images\bg3-dark.jpg
+wwwroot\assets\images\bg5.jpg
+wwwroot\assets\images\bg5-dark.jpg
+wwwroot\assets\images\bg6.jpg
+wwwroot\assets\images\bg6-dark.jpg
+wwwroot\assets\images\bg8.jpg
+wwwroot\assets\images\bg8-dark.jpg
+wwwroot\assets\images\bg9-dark.jpg
+wwwroot\assets\images\books-bg.webp
+wwwroot\assets\images\login.svg
+wwwroot\assets\images\logo.png
+wwwroot\assets\images\Logo_sm.png
+wwwroot\assets\images\mail-sent.svg
+wwwroot\assets\images\ok.png
+wwwroot\assets\images\ok-dark.png
+wwwroot\assets\images\reset-password.svg
+wwwroot\assets\images\search.png
+wwwroot\assets\images\search-dark.png
+wwwroot\assets\images\staff.png
+wwwroot\assets\images\Vault-bro.svg
+wwwroot\assets\images\welocme.svg
+wwwroot\assets\js\plugins.bundle.js
+wwwroot\assets\js\scripts.bundle.js
+wwwroot\assets\plugins\datatables\datatables.bundle.css
+wwwroot\assets\plugins\datatables\datatables.bundle.js
+wwwroot\css\site.css
+wwwroot\favicon.ico
+wwwroot\images\books\no-book.jpg
+wwwroot\images\Screenshot (1180)_d4fe7a6c-3390-4139-bcdb-f78ae085eff9.png
+wwwroot\images\Screenshot (1232)_21c25474-5ec5-4112-9206-ec1222eaad39.png
+wwwroot\images\Screenshot (1232)_7ca4d6e5-9446-468a-8043-1c431b23f35e.png
+wwwroot\images\Screenshot (1233)_d1f83a2a-c19a-4efe-a5cc-e9b188aac667.png
+wwwroot\images\Screenshot (1234)_f1271bb3-f48a-4fe5-aba2-4ecdd83a9fed.png
+wwwroot\images\Screenshot (1245)_19550141-2d99-4c73-8bb0-e179bbc99b33.png
+wwwroot\images\Screenshot (1245)_8ad654ed-c84b-4ea5-a503-c2948d1b07f6.png
+wwwroot\images\Screenshot (1246)_071400dc-b1fa-4699-ba70-d257bc226ef5.png
+wwwroot\images\Screenshot (1261)_13b118a2-083e-4751-a419-8889ee9c54f1.png
+wwwroot\images\Screenshot (7)_9c2e4702-d29f-48e1-8edb-4e0cd96fa5e4.png
+wwwroot\images\subscribers\26d54d55-1c11-41dd-84df-64e07f185f75_Screenshot (1233).png
+wwwroot\images\subscribers\34aaf454-6a85-4edc-8543-5e8660055fb6_Screenshot (1234).png
+wwwroot\images\subscribers\41eb87f4-8672-4783-98c1-0154ca50f361_Screenshot (1232).png
+wwwroot\images\subscribers\4c849899-e8f3-49b3-a4d0-9807bc976402_Screenshot (1234).png
+wwwroot\images\subscribers\51193acc-3fd2-4fee-b2cc-ab4898b2305f_Screenshot (1232).png
+wwwroot\js\profile.js
+wwwroot\js\site.js
+wwwroot\js\validation-styling.js
+wwwroot\lib\bootstrap\css\bootstrap.css
+wwwroot\lib\bootstrap\css\bootstrap.css.map
+wwwroot\lib\bootstrap\css\bootstrap.min.css
+wwwroot\lib\bootstrap\css\bootstrap.min.css.map
+wwwroot\lib\bootstrap\js\bootstrap.bundle.js
+wwwroot\lib\bootstrap\js\bootstrap.bundle.js.map
+wwwroot\lib\bootstrap\js\bootstrap.bundle.min.js
+wwwroot\lib\bootstrap\js\bootstrap.bundle.min.js.map
+wwwroot\lib\bootstrap\js\bootstrap.js
+wwwroot\lib\bootstrap\js\bootstrap.js.map
+wwwroot\lib\bootstrap\js\bootstrap.min.js
+wwwroot\lib\bootstrap\js\bootstrap.min.js.map
+wwwroot\lib\jquery\dist\jquery.js
+wwwroot\lib\jquery\dist\jquery.min.js
+wwwroot\lib\jquery\dist\jquery.min.map
+wwwroot\lib\jquery\dist\jquery.slim.js
+wwwroot\lib\jquery\dist\jquery.slim.min.js
+wwwroot\lib\jquery\dist\jquery.slim.min.map
+wwwroot\lib\jquery\LICENSE.txt
+wwwroot\lib\jquery-validation\dist\additional-methods.js
+wwwroot\lib\jquery-validation\dist\additional-methods.min.js
+wwwroot\lib\jquery-validation\dist\jquery.validate.js
+wwwroot\lib\jquery-validation\dist\jquery.validate.min.js
+wwwroot\lib\jquery-validation\LICENSE.md
+wwwroot\lib\jquery-validation-unobtrusive\dist\jquery.validate.unobtrusive.js
+wwwroot\lib\jquery-validation-unobtrusive\dist\jquery.validate.unobtrusive.min.js
+wwwroot\lib\jquery-validation-unobtrusive\LICENSE.txt

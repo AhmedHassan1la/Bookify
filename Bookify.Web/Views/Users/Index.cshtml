@@ -1,0 +1,182 @@
+﻿@using Bookify.Contracts.ViewModels.User
+@model IEnumerable<UserViewModel>
+
+@{
+    ViewData["title"] = "Users";
+}
+
+@section Styles {
+    <link href="~/assets/plugins/datatables/datatables.bundle.css" rel="stylesheet" />
+}
+
+<div class="card shadow-sm">
+    <div class="card-header">
+        <h3 class="card-title">Users</h3>
+        <div class="card-toolbar">
+            <a asp-controller="Users" asp-action="Create" class="btn btn-sm btn-primary">
+                Add
+            </a>
+        </div>
+    </div>
+    <div class="card-body">
+        @if (!Model.Any())
+        {
+            <div class="alert alert-warning">
+                <strong>No users found!</strong>
+            </div>
+        }
+        else
+        {
+            <div class="py-5">
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr class="fw-bold fs-6 text-gray-800">
+                                <th>FullName</th>
+                                <th>UserName</th>
+                                <th>Email</th>
+                                <th>Status</th>
+                                <th>Create On</th>
+                                <th>Last Updated On</th>
+                                <th class="text-end">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var user in Model)
+                            {
+                                <tr>
+                                    <td>@user.FullName</td>
+                                    <td>@user.UserName</td>
+                                    <td>@user.Email</td>
+                                    <td>
+                                        <span class="badge status-badge badge-light-@(user.IsDeleted ? "danger" : "success")">
+                                            @(user.IsDeleted ? "Deleted" : "Available")
+                                        </span>
+                                    </td>
+                                    <td>@user.CreatedOn.ToString("yyyy-MM-dd HH:mm:ss")</td>
+                                    <td class="last-updated-on">@user.LastUpdatedOn?.ToString("yyyy-MM-dd HH:mm:ss")</td>
+                                    <td class="text-end">
+                                        <button type="button" class="btn btn-sm btn-icon btn-color-primary"
+                                                data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                            <span class="svg-icon svg-icon-2">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24">
+                                                    <g fill="currentColor">
+                                                        <rect x="5" y="5" width="5" height="5" rx="1"></rect>
+                                                        <rect x="14" y="5" width="5" height="5" rx="1" opacity="0.3"></rect>
+                                                        <rect x="5" y="14" width="5" height="5" rx="1" opacity="0.3"></rect>
+                                                        <rect x="14" y="14" width="5" height="5" rx="1" opacity="0.3"></rect>
+                                                    </g>
+                                                </svg>
+                                            </span>
+                                        </button>
+                                        <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-semibold w-200px py-3" data-kt-menu="true" style="">
+                                            <div class="menu-item px-3">
+                                                <a asp-controller="Users" asp-action="Edit" asp-route-id="@user.Id"
+                                                   class="menu-link px-3">
+                                                    Edit
+                                                </a>
+                                            </div>
+                                            <div class="menu-item px-3">
+                                                <a href="javascript:;" class="menu-link px-3 js-toggle-status"
+                                                   data-id="@user.Id">
+                                                    Toggle Status
+                                                </a>
+                                            </div>
+
+                                       
+
+                                            <div class="menu-item px-3">
+                                                <a asp-controller="Users" asp-action="ResetPassword" asp-route-id="@user.Id"
+                                                   class="menu-link px-3">
+                                                    Reset Password
+                                                </a>
+                                            </div>
+
+                                            <!-- Add Unlock Option -->
+                                            <div class="menu-item px-3">
+                                                <a href="javascript:;" class="menu-link px-3 js-unlock-user"
+                                                   data-id="@user.Id">
+                                                    Unlock
+                                                </a>
+                                            </div>
+
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@section Plugins {
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
+
+    <script src="~/assets/plugins/datatables/datatables.bundle.js"></script>
+}
+
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            // Initialize DataTables
+            $('table').DataTable();
+
+            // Attach click event to 'Toggle Status' buttons
+            $('.js-toggle-status').on('click', function(e) {
+                e.preventDefault();
+                var userId = $(this).data('id');
+                var $row = $(this).closest('tr');
+                $.ajax({
+                    url: '/Users/ToggleStatus',
+                    type: 'POST',
+                    data: { id: userId },
+                    success: function(response) {
+                        var $statusBadge = $row.find('.status-badge');
+                        var isDeleted = response.isDeleted;
+                        var lastUpdatedOn = response.lastUpdatedOn;
+
+                        if (isDeleted) {
+                            $statusBadge.removeClass('badge-light-success')
+                                .addClass('badge-light-danger')
+                                .text('Deleted');
+                        } else {
+                            $statusBadge.removeClass('badge-light-danger')
+                                .addClass('badge-light-success')
+                                .text('Available');
+                        }
+
+                        $row.find('.last-updated-on').text(lastUpdatedOn);
+                        alert('User status updated successfully.');
+                    },
+                    error: function(xhr, status, error) {
+                        alert('An error occurred while updating the user status.');
+                        console.log(xhr.responseText);
+                    }
+                });
+            });
+
+            // Attach click event to 'Unlock' buttons
+            $('.js-unlock-user').on('click', function(e) {
+                e.preventDefault();
+                var userId = $(this).data('id');
+                $.ajax({
+                    url: '/Users/Unlock',
+                    type: 'POST',
+                    data: { id: userId },
+                    success: function(response) {
+                        alert('User unlocked successfully.');
+                    },
+                    error: function(xhr, status, error) {
+                        alert('An error occurred while unlocking the user.');
+                        console.log(xhr.responseText);
+                    }
+                });
+            });
+        });
+    </script>
+}

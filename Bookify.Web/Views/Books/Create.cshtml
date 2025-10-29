@@ -1,0 +1,116 @@
+﻿@using Bookify.Web.Core.ViewModels.Book
+@model BookViewModel
+
+<div class="card shadow-lg border-0 rounded-4">
+    <div class="card-header bg-primary text-white rounded-top-4">
+        <h3 class="card-title mb-0">Create New Book</h3>
+    </div>
+    <div class="card-body">
+        <form asp-action="Create" method="post" enctype="multipart/form-data">
+            <div class="row g-4">
+                <!-- Title -->
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Title" class="form-label fw-bold">Book Title</label>
+                        <input asp-for="Title" class="form-control form-control-sm" placeholder="Enter book title" />
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <!-- Author -->
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="SelectedAuthorId" class="form-label fw-bold">Author</label>
+                        <select asp-for="SelectedAuthorId" asp-items="Model.Authors" class="form-select form-select-sm">
+                            <option value="">-- Select Author --</option>
+                        </select>
+                        <span asp-validation-for="SelectedAuthorId" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <!-- Publisher -->
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Publisher" class="form-label fw-bold">Publisher</label>
+                        <input asp-for="Publisher" class="form-control form-control-sm" placeholder="Enter publisher name" />
+                        <span asp-validation-for="Publisher" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <!-- Publishing Date -->
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="PublishingDate" class="form-label fw-bold">Publishing Date</label>
+                        <input asp-for="PublishingDate" type="date" class="form-control form-control-sm" />
+                        <span asp-validation-for="PublishingDate" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <!-- Hall -->
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Hall" class="form-label fw-bold">Hall Location</label>
+                        <input asp-for="Hall" class="form-control form-control-sm" placeholder="Enter hall location" />
+                        <span asp-validation-for="Hall" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <!-- IsAvailableForRental -->
+                <div class="col-md-6 d-flex align-items-center">
+                    <div class="form-check">
+                        <input asp-for="IsAvailableForRental" class="form-check-input" />
+                        <label asp-for="IsAvailableForRental" class="form-check-label fw-bold ms-2">Available for Rental</label>
+                        <span asp-validation-for="IsAvailableForRental" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <!-- Categories -->
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="SelectedCategoryIds" class="form-label fw-bold">Categories</label>
+                        <select asp-for="SelectedCategoryIds" asp-items="Model.Categories" class="form-select form-select-sm" multiple>
+                            <option value=""></option>
+                        </select>
+                        <span asp-validation-for="SelectedCategoryIds" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <!-- Book Image -->
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="form-label fw-bold">Book Image</label>
+                        <div class="mb-3">
+                            <img id="ImagePreview" src="~/images/books/@(Model.ImageUrl ?? "no-book.jpg")"
+                                 class="img-thumbnail shadow-sm" alt="Book Image" style="max-height: 200px; border-radius: 10px;" />
+                        </div>
+                        <div class="form-floating">
+                            <input type="file" class="form-control" placeholder="Image" asp-for="ImageFile"
+                                   accept=".jpeg,.png,.jpg"
+                                   onchange="document.getElementById('ImagePreview').src = window.URL.createObjectURL(this.files[0])" />
+                            <label asp-for="ImageFile">Upload Book Image</label>
+                        </div>
+                        <span asp-validation-for="ImageFile" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <!-- Description -->
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label asp-for="Description" class="form-label fw-bold">Description</label>
+                        <textarea asp-for="Description" class="form-control form-control-sm" rows="4" placeholder="Enter book description"></textarea>
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group mt-4 text-end">
+                <button type="submit" class="btn btn-success px-4">Create</button>
+                <a asp-action="Index" class="btn btn-secondary px-4 ms-2">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,164 @@
+﻿@page
+@using System.Security.Claims
+@model IndexModel
+@inject IWebHostEnvironment WebHostEnvironment
+
+@{
+    ViewData["Title"] = "Account Settings";
+    Layout = "/Views/Shared/_Layout.cshtml";
+
+    var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+    var avatarFilePath = $"{WebHostEnvironment.WebRootPath}/images/users/{userId}.png";
+    var avatarUrl = System.IO.File.Exists(avatarFilePath)
+        ? $"/images/users/{userId}.png"
+        : "/assets/images/avatar.png";
+}
+
+<h3>@ViewData["Title"]</h3>
+
+<div class="content flex-column-fluid" id="kt_content">
+
+    <!-- Navbar Section -->
+    <div class="card mb-5 mb-xl-10">
+        <div class="card-body pt-9 pb-0">
+            <div class="d-flex flex-wrap flex-sm-nowrap">
+                <div class="me-7 mb-4">
+                    <div class="symbol symbol-50px symbol-lg-60px symbol-fixed position-relative">
+                        <img src="@avatarUrl" alt="avatar">
+                        <div class="position-absolute translate-middle bottom-0 start-100 mb-6 bg-success rounded-circle border border-4 border-body h-20px w-20px"></div>
+                    </div>
+                </div>
+                <div class="flex-grow-1">
+                    <div class="d-flex justify-content-between align-items-start flex-wrap mb-2">
+                        <div class="d-flex flex-column">
+                            <div class="d-flex align-items-center mb-2">
+                                <a href="#" class="text-gray-900 text-hover-primary fs-2 fw-bold me-1">@User.FindFirst(ClaimTypes.GivenName)?.Value</a>
+                                <a href="#"><i class="ki-duotone ki-verify fs-1 text-primary"></i></a>
+                            </div>
+                            <div class="d-flex flex-wrap fw-semibold fs-6 mb-4 pe-2">
+                                <a href="#" class="d-flex align-items-center text-gray-500 text-hover-primary mb-2">
+                                    <i class="ki-duotone ki-sms fs-4"></i> @User.FindFirst(ClaimTypes.Email)?.Value
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Navbar Section -->
+    <!-- Profile Details Section -->
+    <div class="card mb-5 mb-xl-10">
+        <div class="card-header border-0 cursor-pointer" data-bs-toggle="collapse" data-bs-target="#kt_account_profile_details">
+            <div class="card-title m-0">
+                <h3 class="fw-bold m-0">Profile Details</h3>
+            </div>
+        </div>
+        <div id="kt_account_settings_profile_details" class="collapse show">
+            <form method="post" enctype="multipart/form-data">
+                <div class="card-body border-top p-9">
+                    <partial name="_StatusMessage" for="StatusMessage" />
+
+                    <!-- Avatar Upload -->
+                    <div class="row mb-6">
+                        <label class="col-lg-4 col-form-label fw-semibold fs-6">Avatar</label>
+                        <div class="col-lg-8">
+                            <div class="image-input image-input-outline" data-kt-image-input="true" style="background-image: url('/assets/images/avatar-blank.svg')">
+                                <div class="image-input-wrapper w-125px h-125px" style="background-image: url(@avatarUrl)"></div>
+                                <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change">
+                                    <i class="ki-duotone ki-pencil fs-7"></i>
+                                    <input type="file" name="avatar" accept=".png, .jpg, .jpeg">
+                                </label>
+                                <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="cancel">
+                                    <i class="ki-duotone ki-cross fs-2"></i>
+                                </span>
+                            </div>
+                            <div class="form-text">Allowed file types: png, jpg, jpeg.</div>
+                        </div>
+                    </div>
+
+                    <!-- Full Name Input -->
+                    <div class="row mb-6">
+                        <label class="col-lg-4 col-form-label required fw-semibold fs-6" asp-for="Input.FullName"></label>
+                        <div class="col-lg-8">
+                            <input type="text" class="form-control form-control-lg form-control-solid mb-3" asp-for="Input.FullName" placeholder="Full name">
+                            <span asp-validation-for="Input.FullName" class="invalid-feedback"></span>
+                        </div>
+                    </div>
+
+                    <!-- Phone Number Input -->
+                    <div class="row mb-6">
+                        <label class="col-lg-4 col-form-label required fw-semibold fs-6" asp-for="Input.PhoneNumber"></label>
+                        <div class="col-lg-8">
+                            <input type="tel" class="form-control form-control-lg form-control-solid" asp-for="Input.PhoneNumber" placeholder="Phone number">
+                            <span asp-validation-for="Input.PhoneNumber" class="invalid-feedback"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer d-flex justify-content-end py-6 px-9">
+                    <button type="reset" class="btn btn-light btn-active-light-primary me-2">Discard</button>
+                    <button type="submit" class="btn btn-primary">
+                        <span class="indicator-label">Save Changes</span>
+                        <span class="indicator-progress">
+                            Please wait... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                        </span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- End Profile Details Section -->
+    <!-- Sign-in Method Section -->
+    <div class="card mb-5 mb-xl-10">
+        <div class="card-header border-0 cursor-pointer" data-bs-toggle="collapse" data-bs-target="#kt_account_signin_method">
+            <div class="card-title m-0">
+                <h3 class="fw-bold m-0">Sign-in Method</h3>
+            </div>
+        </div>
+        <div id="kt_account_settings_signin_method" class="collapse show">
+            <div class="card-body border-top p-9">
+                <!-- Email Address -->
+                <div class="d-flex flex-wrap align-items-center">
+                    <div id="kt_signin_email">
+                        <div class="fs-6 fw-bold mb-1">Email Address</div>
+                        <div class="fw-semibold text-gray-600">support@keenthemes.com</div>
+                    </div>
+                    <div id="kt_signin_email_button" class="ms-auto">
+                        <button class="btn btn-light btn-active-light-primary">Change Email</button>
+                    </div>
+                </div>
+
+                <div class="separator separator-dashed my-6"></div>
+
+                <!-- Password -->
+                <div class="d-flex flex-wrap align-items-center mb-10">
+                    <div id="kt_signin_password">
+                        <div class="fs-6 fw-bold mb-1">Password</div>
+                        <div class="fw-semibold text-gray-600">************</div>
+                    </div>
+                    <div id="kt_signin_password_button" class="ms-auto">
+                        <a asp-page="./ChangePassword" class="btn btn-light btn-active-light-primary">Change Password</a>
+                    </div>
+                </div>
+
+                <!-- Two-Factor Authentication -->
+                <div class="notice d-flex bg-light-primary rounded border-primary p-6">
+                    <i class="ki-duotone ki-shield-tick fs-2tx text-primary me-4"></i>
+                    <div class="d-flex flex-stack flex-grow-1 flex-wrap">
+                        <div class="mb-3 fw-semibold">
+                            <h4 class="text-gray-900 fw-bold">Secure Your Account</h4>
+                            <div class="fs-6 text-gray-700">Two-factor authentication adds extra security to your account.</div>
+                        </div>
+                        <a href="#" class="btn btn-primary px-6">Enable</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Sign-in Method Section -->
+
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

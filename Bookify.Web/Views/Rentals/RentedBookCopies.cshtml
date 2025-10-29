@@ -1,0 +1,78 @@
+﻿@model List<Bookify.Contracts.ViewModels.Rental.RentedBookViewModel>
+
+@{
+    ViewData["Title"] = "Rented Book Copies";
+}
+
+<div class="card shadow-sm">
+    <div class="card-header">
+        <h3 class="card-title">Rented Book Copies</h3>
+    </div>
+    <div class="card-body">
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Serial Number</th>
+                    <th>Title</th>
+                    <th>Edition Number</th>
+                    <th>Rental Date</th>
+                    <th>Rental End</th>
+                    <th>Return Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var book in Model)
+                {
+                    <tr id="book-row-@book.SerialNumber">
+                        <td>@book.SerialNumber</td>
+                        <td>@book.BookTitle</td>
+                        <td>@book.EditionNumber</td>
+                        <td>@book.RentalDate.ToString("dd/MM/yyyy")</td>
+                        <td>@book.RentalEnd.ToString("dd/MM/yyyy")</td>
+
+                        <td id="return-date-@book.SerialNumber">
+                            @(book.ReturnDate.HasValue ? book.ReturnDate.Value.ToString("dd/MM/yyyy") : "Not Returned")
+                        </td>
+
+                        <td>
+                            @if (!book.ReturnDate.HasValue)
+                            {
+                                <button type="button" class="btn btn-success btn-sm" onclick="returnBook(@book.SerialNumber)">
+                                    Return
+                                </button>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        function returnBook(serialNumber) {
+            $.ajax({
+                url: '@Url.Action("ReturnBook", "Rentals")',
+                type: 'POST',
+                data: { serialNumber: serialNumber },
+                success: function (response) {
+                    if (response.success) {
+                        // عرض التاريخ الحالي داخل الخلية
+                        const today = new Date().toLocaleDateString('en-GB'); // dd/MM/yyyy
+                        $('#return-date-' + serialNumber).text(today);
+
+                        // إخفاء زرار الـ Return
+                        $('#book-row-' + serialNumber + ' button').remove();
+                    } else {
+                        alert('Failed to return the book.');
+                    }
+                },
+                error: function () {
+                    alert('An error occurred while returning the book.');
+                }
+            });
+        }
+    </script>
+}

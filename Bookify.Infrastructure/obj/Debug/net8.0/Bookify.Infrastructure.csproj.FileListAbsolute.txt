@@ -1,0 +1,44 @@
+D:\مينفعش يتمسح\Users-fc\OneDrive\Desktop\Bookify\Bookify.Infrastructure\bin\Debug\net8.0\Bookify.Infrastructure.deps.json
+D:\مينفعش يتمسح\Users-fc\OneDrive\Desktop\Bookify\Bookify.Infrastructure\bin\Debug\net8.0\Bookify.Infrastructure.runtimeconfig.json
+D:\مينفعش يتمسح\Users-fc\OneDrive\Desktop\Bookify\Bookify.Infrastructure\bin\Debug\net8.0\Bookify.Infrastructure.dll
+D:\مينفعش يتمسح\Users-fc\OneDrive\Desktop\Bookify\Bookify.Infrastructure\bin\Debug\net8.0\Bookify.Infrastructure.pdb
+D:\مينفعش يتمسح\Users-fc\OneDrive\Desktop\Bookify\Bookify.Infrastructure\bin\Debug\net8.0\Bookify.Application.dll
+D:\مينفعش يتمسح\Users-fc\OneDrive\Desktop\Bookify\Bookify.Infrastructure\bin\Debug\net8.0\Bookify.Contracts.dll
+D:\مينفعش يتمسح\Users-fc\OneDrive\Desktop\Bookify\Bookify.Infrastructure\bin\Debug\net8.0\Bookify.Domain.dll
+D:\مينفعش يتمسح\Users-fc\OneDrive\Desktop\Bookify\Bookify.Infrastructure\bin\Debug\net8.0\Bookify.Application.pdb
+D:\مينفعش يتمسح\Users-fc\OneDrive\Desktop\Bookify\Bookify.Infrastructure\bin\Debug\net8.0\Bookify.Contracts.pdb
+D:\مينفعش يتمسح\Users-fc\OneDrive\Desktop\Bookify\Bookify.Infrastructure\bin\Debug\net8.0\Bookify.Domain.pdb
+D:\مينفعش يتمسح\Users-fc\OneDrive\Desktop\Bookify\Bookify.Infrastructure\obj\Debug\net8.0\Bookify.Infrastructure.csproj.AssemblyReference.cache
+D:\مينفعش يتمسح\Users-fc\OneDrive\Desktop\Bookify\Bookify.Infrastructure\obj\Debug\net8.0\Bookify.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\مينفعش يتمسح\Users-fc\OneDrive\Desktop\Bookify\Bookify.Infrastructure\obj\Debug\net8.0\Bookify.Infrastructure.AssemblyInfoInputs.cache
+D:\مينفعش يتمسح\Users-fc\OneDrive\Desktop\Bookify\Bookify.Infrastructure\obj\Debug\net8.0\Bookify.Infrastructure.AssemblyInfo.cs
+D:\مينفعش يتمسح\Users-fc\OneDrive\Desktop\Bookify\Bookify.Infrastructure\obj\Debug\net8.0\Bookify.Infrastructure.csproj.CoreCompileInputs.cache
+D:\مينفعش يتمسح\Users-fc\OneDrive\Desktop\Bookify\Bookify.Infrastructure\obj\Debug\net8.0\Bookify.Infrastructure.sourcelink.json
+D:\مينفعش يتمسح\Users-fc\OneDrive\Desktop\Bookify\Bookify.Infrastructure\obj\Debug\net8.0\Bookify..D02210A3.Up2Date
+D:\مينفعش يتمسح\Users-fc\OneDrive\Desktop\Bookify\Bookify.Infrastructure\obj\Debug\net8.0\Bookify.Infrastructure.dll
+D:\مينفعش يتمسح\Users-fc\OneDrive\Desktop\Bookify\Bookify.Infrastructure\obj\Debug\net8.0\refint\Bookify.Infrastructure.dll
+D:\مينفعش يتمسح\Users-fc\OneDrive\Desktop\Bookify\Bookify.Infrastructure\obj\Debug\net8.0\Bookify.Infrastructure.pdb
+D:\مينفعش يتمسح\Users-fc\OneDrive\Desktop\Bookify\Bookify.Infrastructure\obj\Debug\net8.0\Bookify.Infrastructure.genruntimeconfig.cache
+D:\مينفعش يتمسح\Users-fc\OneDrive\Desktop\Bookify\Bookify.Infrastructure\obj\Debug\net8.0\ref\Bookify.Infrastructure.dll
+D:\Bookify\Bookify.Infrastructure\bin\Debug\net8.0\Bookify.Infrastructure.deps.json
+D:\Bookify\Bookify.Infrastructure\bin\Debug\net8.0\Bookify.Infrastructure.runtimeconfig.json
+D:\Bookify\Bookify.Infrastructure\bin\Debug\net8.0\Bookify.Infrastructure.dll
+D:\Bookify\Bookify.Infrastructure\bin\Debug\net8.0\Bookify.Infrastructure.pdb
+D:\Bookify\Bookify.Infrastructure\bin\Debug\net8.0\Bookify.Application.dll
+D:\Bookify\Bookify.Infrastructure\bin\Debug\net8.0\Bookify.Contracts.dll
+D:\Bookify\Bookify.Infrastructure\bin\Debug\net8.0\Bookify.Domain.dll
+D:\Bookify\Bookify.Infrastructure\bin\Debug\net8.0\Bookify.Application.pdb
+D:\Bookify\Bookify.Infrastructure\bin\Debug\net8.0\Bookify.Contracts.pdb
+D:\Bookify\Bookify.Infrastructure\bin\Debug\net8.0\Bookify.Domain.pdb
+D:\Bookify\Bookify.Infrastructure\obj\Debug\net8.0\Bookify.Infrastructure.csproj.AssemblyReference.cache
+D:\Bookify\Bookify.Infrastructure\obj\Debug\net8.0\Bookify.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\Bookify\Bookify.Infrastructure\obj\Debug\net8.0\Bookify.Infrastructure.AssemblyInfoInputs.cache
+D:\Bookify\Bookify.Infrastructure\obj\Debug\net8.0\Bookify.Infrastructure.AssemblyInfo.cs
+D:\Bookify\Bookify.Infrastructure\obj\Debug\net8.0\Bookify.Infrastructure.csproj.CoreCompileInputs.cache
+D:\Bookify\Bookify.Infrastructure\obj\Debug\net8.0\Bookify.Infrastructure.sourcelink.json
+D:\Bookify\Bookify.Infrastructure\obj\Debug\net8.0\Bookify..D02210A3.Up2Date
+D:\Bookify\Bookify.Infrastructure\obj\Debug\net8.0\Bookify.Infrastructure.dll
+D:\Bookify\Bookify.Infrastructure\obj\Debug\net8.0\refint\Bookify.Infrastructure.dll
+D:\Bookify\Bookify.Infrastructure\obj\Debug\net8.0\Bookify.Infrastructure.pdb
+D:\Bookify\Bookify.Infrastructure\obj\Debug\net8.0\Bookify.Infrastructure.genruntimeconfig.cache
+D:\Bookify\Bookify.Infrastructure\obj\Debug\net8.0\ref\Bookify.Infrastructure.dll

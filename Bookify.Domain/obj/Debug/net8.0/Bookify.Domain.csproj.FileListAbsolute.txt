@@ -1,0 +1,26 @@
+D:\مينفعش يتمسح\Users-fc\OneDrive\Desktop\Bookify\Bookify.Domain\bin\Debug\net8.0\Bookify.Domain.deps.json
+D:\مينفعش يتمسح\Users-fc\OneDrive\Desktop\Bookify\Bookify.Domain\bin\Debug\net8.0\Bookify.Domain.dll
+D:\مينفعش يتمسح\Users-fc\OneDrive\Desktop\Bookify\Bookify.Domain\bin\Debug\net8.0\Bookify.Domain.pdb
+D:\مينفعش يتمسح\Users-fc\OneDrive\Desktop\Bookify\Bookify.Domain\obj\Debug\net8.0\Bookify.Domain.csproj.AssemblyReference.cache
+D:\مينفعش يتمسح\Users-fc\OneDrive\Desktop\Bookify\Bookify.Domain\obj\Debug\net8.0\Bookify.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\مينفعش يتمسح\Users-fc\OneDrive\Desktop\Bookify\Bookify.Domain\obj\Debug\net8.0\Bookify.Domain.AssemblyInfoInputs.cache
+D:\مينفعش يتمسح\Users-fc\OneDrive\Desktop\Bookify\Bookify.Domain\obj\Debug\net8.0\Bookify.Domain.AssemblyInfo.cs
+D:\مينفعش يتمسح\Users-fc\OneDrive\Desktop\Bookify\Bookify.Domain\obj\Debug\net8.0\Bookify.Domain.csproj.CoreCompileInputs.cache
+D:\مينفعش يتمسح\Users-fc\OneDrive\Desktop\Bookify\Bookify.Domain\obj\Debug\net8.0\Bookify.Domain.sourcelink.json
+D:\مينفعش يتمسح\Users-fc\OneDrive\Desktop\Bookify\Bookify.Domain\obj\Debug\net8.0\Bookify.Domain.dll
+D:\مينفعش يتمسح\Users-fc\OneDrive\Desktop\Bookify\Bookify.Domain\obj\Debug\net8.0\refint\Bookify.Domain.dll
+D:\مينفعش يتمسح\Users-fc\OneDrive\Desktop\Bookify\Bookify.Domain\obj\Debug\net8.0\Bookify.Domain.pdb
+D:\مينفعش يتمسح\Users-fc\OneDrive\Desktop\Bookify\Bookify.Domain\obj\Debug\net8.0\ref\Bookify.Domain.dll
+D:\Bookify\Bookify.Domain\bin\Debug\net8.0\Bookify.Domain.deps.json
+D:\Bookify\Bookify.Domain\bin\Debug\net8.0\Bookify.Domain.dll
+D:\Bookify\Bookify.Domain\bin\Debug\net8.0\Bookify.Domain.pdb
+D:\Bookify\Bookify.Domain\obj\Debug\net8.0\Bookify.Domain.csproj.AssemblyReference.cache
+D:\Bookify\Bookify.Domain\obj\Debug\net8.0\Bookify.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\Bookify\Bookify.Domain\obj\Debug\net8.0\Bookify.Domain.AssemblyInfoInputs.cache
+D:\Bookify\Bookify.Domain\obj\Debug\net8.0\Bookify.Domain.AssemblyInfo.cs
+D:\Bookify\Bookify.Domain\obj\Debug\net8.0\Bookify.Domain.csproj.CoreCompileInputs.cache
+D:\Bookify\Bookify.Domain\obj\Debug\net8.0\Bookify.Domain.sourcelink.json
+D:\Bookify\Bookify.Domain\obj\Debug\net8.0\Bookify.Domain.dll
+D:\Bookify\Bookify.Domain\obj\Debug\net8.0\refint\Bookify.Domain.dll
+D:\Bookify\Bookify.Domain\obj\Debug\net8.0\Bookify.Domain.pdb
+D:\Bookify\Bookify.Domain\obj\Debug\net8.0\ref\Bookify.Domain.dll

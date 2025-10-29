@@ -1,0 +1,176 @@
+﻿@using Bookify.Web.Core.ViewModels.Book
+@model IEnumerable<BookViewModel>
+
+@{
+    ViewData["Title"] = "Books";
+}
+
+<!-- إضافة Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+@section Styles {
+    <link href="~/assets/plugins/datatables/datatables.bundle.css" rel="stylesheet" />
+}
+
+<!-- إضافة jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- إضافة Bootstrap JS -->
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+}
+
+
+<div class="card shadow-sm">
+    <div class="card-header">
+        <h3 class="card-title">Books</h3>
+        <div class="card-toolbar">
+            <a asp-controller="Books" asp-action="Create" class="btn btn-sm btn-primary">
+                Add New Book
+            </a>
+        </div>
+    </div>
+    <div class="card-body">
+        @if (!Model.Any())
+        {
+            <div class="alert alert-dismissible bg-light-warning border border-warning border-dashed d-flex flex-column flex-sm-row w-100 p-5 mb-10">
+                <span class="svg-icon svg-icon-2hx svg-icon-warning me-4 mb-5 mb-sm-0">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect opacity="0.3" x="2" y="2" width="20" height="20" rx="10" fill="currentColor" />
+                        <rect x="11" y="14" width="7" height="2" rx="1" transform="rotate(-90 11 14)" fill="currentColor" />
+                        <rect x="11" y="17" width="2" height="2" rx="1" transform="rotate(-90 11 17)" fill="currentColor" />
+                    </svg>
+                </span>
+                <div class="d-flex flex-column pe-0 pe-sm-10 align-self-center">
+                    <h5 class="mb-1">No books found!</h5>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="py-5">
+                <div class="table-responsive">
+                    <table class="table table-row-dashed table-row-gray-300 gy-7">
+                        <thead>
+                            <tr class="fw-bold fs-6 text-gray-800">
+                                <th>Image</th>
+                                <th>Title</th>
+
+                                <th>Publisher</th>
+                                <th>Publishing Date</th>
+                                <th>Categories</th>
+                                <th>Hall</th>
+
+                                <th>Available for Rental</th>
+                                <th>Author</th>
+
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var book in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @if (!string.IsNullOrEmpty(book.ImageUrl))
+                                        {
+                                            <img src="@book.ImageUrl" alt="Book Image" style="max-width: 100px; max-height: 100px;" />
+                                        }
+                                        else
+                                        {
+                                            <span>No Image</span>
+                                        }
+                                    </td>
+                                    <td>@book.Title</td>
+
+                                    <td>@book.Publisher</td>
+                                    <td>@book.PublishingDate.ToString("yyyy-MM-dd HH:mm:ss")</td>
+                                    <td>
+                                        @if (book.SelectedCategoryIds != null && book.SelectedCategoryIds.Any())
+                                        {
+                                            @string.Join(", ", book.Categories
+                                                     .Where(c => book.SelectedCategoryIds.Contains(int.Parse(c.Value)))
+                                                     .Select(c => c.Text))
+                                        }
+                                        else
+                                        {
+                                            <span>No Categories</span>
+                                        }
+                                    </td>
+                                    <td>@book.Hall</td>
+                                    <td>
+                                        <span class="badge status-badge badge-light-@(book.IsAvailableForRental ? "success" : "danger")">
+                                            @(book.IsAvailableForRental ? "Available" : "Not Available")
+                                        </span>
+                                    </td>
+                                    <td>@book.Authors.FirstOrDefault(a => a.Value == book.SelectedAuthorId.ToString())?.Text</td>
+
+                                    <td>
+                                        <button type="button" class="btn btn-sm btn-icon btn-color-primary btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                            <span class="svg-icon svg-icon-2">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24">
+                                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                        <rect x="5" y="5" width="5" height="5" rx="1" fill="currentColor"></rect>
+                                                        <rect x="14" y="5" width="5" height="5" rx="1" fill="currentColor" opacity="0.3"></rect>
+                                                        <rect x="5" y="14" width="5" height="5" rx="1" fill="currentColor" opacity="0.3"></rect>
+                                                        <rect x="14" y="14" width="5" height="5" rx="1" fill="currentColor" opacity="0.3"></rect>
+                                                    </g>
+                                                </svg>
+                                            </span>
+                                        </button>
+                                        <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-semibold w-200px py-3" data-kt-menu="true">
+                                            <div class="menu-item px-3">
+                                                <a asp-controller="Books" asp-action="Details" asp-route-id="@book.Id" class="menu-link px-3">
+                                                    <i class="fas fa-info-circle"></i> Details
+                                                </a>
+                                            </div>
+                                            <div class="menu-item px-3">
+                                                <a asp-action="Edit" asp-route-id="@book.Id" class="menu-link px-3">
+                                                    <i class="fas fa-edit"></i> Edit
+                                                </a>
+                                            </div>
+                                           
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+@section Plugins {
+    <script src="~/assets/plugins/datatables/datatables.bundle.js"></script>
+}
+
+
+
+
+<!-- تهيئة يدوية للقائمة المنسدلة -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        $('table').DataTable();
+
+        var dropdownButtons = document.querySelectorAll('.dropdown-toggle');
+        dropdownButtons.forEach(function(button) {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                var dropdownMenu = button.nextElementSibling;
+                dropdownMenu.classList.toggle('show');
+            });
+        });
+
+        // إغلاق القائمة المنسدلة عند النقر خارجها
+        window.addEventListener('click', function(e) {
+            if (!e.target.matches('.dropdown-toggle')) {
+                var dropdowns = document.querySelectorAll('.dropdown-menu');
+                dropdowns.forEach(function(dropdown) {
+                    if (dropdown.classList.contains('show')) {
+                        dropdown.classList.remove('show');
+                    }
+                });
+            }
+        });
+    });
+</script>

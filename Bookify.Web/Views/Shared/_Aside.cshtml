@@ -1,0 +1,146 @@
+﻿@using Bookify.Domain.Consts
+@using Bookify.Domain.Entities;
+
+<!--begin::Aside-->
+<div id="kt_aside" class="aside card" data-kt-drawer="true" data-kt-drawer-name="aside" data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'200px', '300px': '250px'}" data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_aside_toggle">
+    <!--begin::Aside menu-->
+    <div class="aside-menu flex-column-fluid px-4">
+        <!--begin::Aside Menu-->
+        <div class="hover-scroll-overlay-y my-5 pe-4 me-n4" id="kt_aside_menu_wrapper" data-kt-scroll="true" data-kt-scroll-activate="true" data-kt-scroll-height="auto" data-kt-scroll-dependencies="{default: '#kt_aside_footer', lg: '#kt_header, #kt_aside_footer'}" data-kt-scroll-wrappers="#kt_aside, #kt_aside_menu" data-kt-scroll-offset="{default: '5px', lg: '75px'}">
+            <!--begin::Menu-->
+            <div class="menu menu-column menu-rounded menu-sub-indention fw-semibold fs-6" id="#kt_aside_menu" data-kt-menu="true">
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                    <!--begin:Menu link-->
+                    <a class="menu-link" asp-controller="Dashboard" asp-action="Index" active-when="Dashboard">
+                        <span class="menu-icon">
+                            <!--begin::Svg Icon | path: icons/duotune/general/gen002.svg-->
+                            <span class="svg-icon svg-icon-2">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path opacity="0.3" d="M10.9607 12.9128H18.8607C19.4607 12.9128 19.9607 13.4128 19.8607 14.0128C19.2607 19.0128 14.4607 22.7128 9.26068 21.7128C5.66068 21.0128 2.86071 18.2128 2.16071 14.6128C1.16071 9.31284 4.96069 4.61281 9.86069 4.01281C10.4607 3.91281 10.9607 4.41281 10.9607 5.01281V12.9128Z" fill="currentColor" />
+                                    <path d="M12.9607 10.9128V3.01281C12.9607 2.41281 13.4607 1.91281 14.0607 2.01281C16.0607 2.21281 17.8607 3.11284 19.2607 4.61284C20.6607 6.01284 21.5607 7.91285 21.8607 9.81285C21.9607 10.4129 21.4607 10.9128 20.8607 10.9128H12.9607Z" fill="currentColor" />
+                                </svg>
+                            </span>
+                            <!--end::Svg Icon-->
+                        </span>
+                        <span class="menu-title">Dashboard</span>
+                    </a>
+                    <!--end:Menu link-->
+                </div>
+
+                <div class="menu-item">
+                    <!--begin:Menu link-->
+                    <a class="menu-link" asp-controller="Categories" asp-action="Index" active-when="Categories">
+                        <span class="menu-icon">
+                            <i class="bi bi-bookmarks"></i> <!-- Bootstrap Icon for Categories -->
+                        </span>
+                        <span class="menu-title">Categories</span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <!--end:Menu link-->
+                </div>
+
+                <div class="menu-item">
+                    <!--begin:Menu link-->
+                    <a class="menu-link" asp-controller="Authors" asp-action="Index" active-when="Authors">
+                        <span class="menu-icon">
+                            <i class="bi bi-person-badge"></i> <!-- Bootstrap Icon for Authors -->
+                        </span>
+                        <span class="menu-title">Authors</span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <!--end:Menu link-->
+                </div>
+
+                <div class="menu-item">
+                    <!--begin:Menu link-->
+                    <a class="menu-link" asp-controller="Books" asp-action="Index" active-when="Books">
+                        <span class="menu-icon">
+                            <i class="bi bi-book"></i> <!-- Bootstrap Icon for Books -->
+                        </span>
+                        <span class="menu-title">Books</span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <!--end:Menu link-->
+                </div>
+
+                @if (User.IsInRole(AppRoles.Admin))
+                {
+                    <div class="menu-item">
+                        <!--begin:Menu link-->
+                        <a class="menu-link" asp-controller="Users" asp-action="Index" active-when="Users">
+                            <span class="menu-icon">
+                                <i class="bi bi-people"></i> <!-- Bootstrap Icon for Users -->
+                            </span>
+                            <span class="menu-title">Users</span>
+                            <span class="menu-arrow"></span>
+                        </a>
+                        <!--end:Menu link-->
+                    </div>
+                }
+
+                <div class="menu-item">
+                    <!--begin:Menu link-->
+                    <a class="menu-link" asp-controller="Subscribers" asp-action="Index" active-when="Subscribers">
+                        <span class="menu-icon">
+                            <i class="bi bi-person-lines-fill"></i> <!-- Bootstrap Icon for Subscribers -->
+                        </span>
+                        <span class="menu-title">Subscribers</span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+            </div>
+            <!--end::Menu-->
+        </div>
+    </div>
+    <!--end::Aside menu-->
+</div>
+<!--end::Aside-->
+
+<style>
+    /* Style for active menu item */
+    .menu-link.active {
+        background-color: #f0f3f5; /* Light background for active item */
+        color: #009ef7; /* Primary color for active item */
+        font-weight: bold;
+    }
+
+        .menu-link.active .menu-arrow {
+            display: inline-block;
+            margin-left: auto;
+            width: 0;
+            height: 0;
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+            border-left: 5px solid #009ef7; /* Arrow color */
+        }
+
+    .menu-link {
+        display: flex;
+        align-items: center;
+        padding: 0.75rem 1rem;
+        color: #5e6278; /* Default text color */
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+        .menu-link:hover {
+            background-color: #f0f3f5; /* Light background on hover */
+            color: #009ef7; /* Primary color on hover */
+        }
+
+    .menu-icon {
+        margin-right: 0.75rem;
+        font-size: 1.25rem;
+    }
+
+    .menu-title {
+        flex-grow: 1;
+    }
+
+    .menu-arrow {
+        display: none; /* Hide arrow by default */
+    }
+</style>

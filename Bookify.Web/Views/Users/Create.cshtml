@@ -1,0 +1,94 @@
+﻿@using Bookify.Contracts.ViewModels.User
+@model CreateUserViewModel
+
+@{
+    ViewData["Title"] = "Add User";
+}
+
+<div class="card shadow-sm">
+    <div class="card-header bg-primary text-white">
+        <h3 class="card-title">Add User</h3>
+    </div>
+    <div class="card-body">
+        <form method="post" asp-controller="Users" asp-action="Create" class="row g-3" autocomplete="off">
+            <!-- Hidden fields to prevent autofill -->
+            <input type="text" name="fakeUsername" style="display:none;" autocomplete="off" />
+            <input type="password" name="fakePassword" style="display:none;" autocomplete="off" />
+
+            <!-- Full Name Input -->
+            <div class="col-md-6">
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="FullName" placeholder="Full Name" asp-for="FullName" />
+                    <label for="FullName">Full Name</label>
+                    <span class="text-danger small" asp-validation-for="FullName"></span>
+                </div>
+            </div>
+
+            <!-- Username Input -->
+            <div class="col-md-6">
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="UserName" placeholder="Username" asp-for="UserName" autocomplete="new-username" />
+                    <label for="UserName">Username</label>
+                    <span class="text-danger small" asp-validation-for="UserName"></span>
+                </div>
+            </div>
+
+            <!-- Email Input -->
+            <div class="col-md-6">
+                <div class="form-floating">
+                    <input type="email" class="form-control" id="Email" placeholder="Email" asp-for="Email" />
+                    <label for="Email">Email</label>
+                    <span class="text-danger small" asp-validation-for="Email"></span>
+                </div>
+            </div>
+
+            <!-- Roles Selection -->
+            <div class="col-md-6">
+                <label for="roles" class="form-label">Roles</label>
+                <select id="roles" class="form-select js-select2" asp-for="SelectedRoles" asp-items="@Model.Roles" multiple>
+                    <option value="">Select roles</option>
+                </select>
+                <span class="text-danger small" asp-validation-for="SelectedRoles"></span>
+            </div>
+
+            <!-- Password Input -->
+            <div class="col-md-6">
+                <div class="form-floating">
+                    <input type="password" class="form-control" id="Password" placeholder="Password" asp-for="Password" autocomplete="new-password" />
+                    <label for="Password">Password</label>
+                    <span class="text-danger small" asp-validation-for="Password"></span>
+                </div>
+            </div>
+
+            <!-- Confirm Password Input -->
+            <div class="col-md-6">
+                <div class="form-floating">
+                    <input type="password" class="form-control" id="ConfirmPassword" placeholder="Confirm Password" asp-for="ConfirmPassword" autocomplete="new-password" />
+                    <label for="ConfirmPassword">Confirm Password</label>
+                    <span class="text-danger small" asp-validation-for="ConfirmPassword"></span>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="col-12 text-end">
+                <button type="submit" class="btn btn-success px-4">
+                     Save
+                </button>
+                <a asp-action="Index" class="btn btn-secondary px-4 ms-2">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        $(document).ready(function() {
+            $('.js-select2').select2({
+                placeholder: "Select roles",
+                allowClear: true,
+                width: '100%'  // Ensures the select box stretches to full width
+            });
+        });
+    </script>
+}
