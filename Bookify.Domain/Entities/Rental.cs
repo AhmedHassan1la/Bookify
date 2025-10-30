@@ -8,6 +8,7 @@ namespace Bookify.Domain.Entities
 
         // علاقة مع المشترك
         public int SubscriberId { get; set; }
+        public int SubscriberId1 { get; set; }
         public Subscriber Subscriber { get; set; } = null!;
 
 
