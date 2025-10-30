@@ -11,6 +11,7 @@ namespace Bookify.Domain.Entities
 
         [MaxLength(100)]
         public string Name { get; set; } = null!;
+        public string Name1 { get; set; } = null!;
 
         public int GovernorateId { get; set; }
 
